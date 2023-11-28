@@ -49,20 +49,20 @@ class CustomLoginView(APIView):
             }, status=status.HTTP_401_UNAUTHORIZED)
         
 class VerifyEmailByOTP(APIView):
-    #   @swagger_auto_schema(
-    #     request_body=openapi.Schema(
-    #         type=openapi.TYPE_OBJECT,
-    #         properties={
-    #             'email': openapi.Schema(type=openapi.TYPE_STRING),
-    #             'otp': openapi.Schema(type=openapi.TYPE_STRING),
-    #         }
-    #     ),
-    #     responses={
-    #         200: 'Email verified successfully!',
-    #         400: 'Invalid OTP',
-    #         500: 'Internal server error',
-    #     }
-    # )
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'email': openapi.Schema(type=openapi.TYPE_STRING),
+                'otp': openapi.Schema(type=openapi.TYPE_STRING),
+            }
+        ),
+        responses={
+            200: 'Email verified successfully!',
+            400: 'Invalid OTP',
+            500: 'Internal server error',
+        }
+    )
 
     def post(self, request):
         try:
