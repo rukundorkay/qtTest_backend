@@ -48,12 +48,14 @@ DJANGO_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_swagger',      
-    'drf_yasg'                      
+    'drf_yasg',
+    'corsheaders',                      
 ]
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -156,3 +158,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "users.CustomUser"
+# ALLOWED ORIGINS
+CORS_ALLOWED_ORIGINS = [ 
+    'http://localhost:5173'
+]

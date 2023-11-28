@@ -14,12 +14,14 @@ class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TaskSerializer
 
 class AssigneeDetailView(generics.RetrieveUpdateDestroyAPIView):
+    # swagger_schema = None
     permission_classes = [IsAuthenticated]
     queryset = Assignees.objects.all()
     serializer_class = AssignesSerializer
 
 
 class AssigneeCreateView(generics.ListCreateAPIView):
+    # swagger_schema = None
     permission_classes = [IsAuthenticated]
     queryset = Assignees.objects.all()
     serializer_class = AssignesSerializer
