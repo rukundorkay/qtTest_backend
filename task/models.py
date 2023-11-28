@@ -18,7 +18,7 @@ class Task(models.Model):
     file_attachment=models.CharField(("file attachment"),blank=False,max_length=100)
     project_name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
-    # assignees = ArrayField(ArrayField(models.IntegerField()))
+    assignees = models.JSONField(default=list, blank=True, null=True)
     def clean(self):
         super().clean()
 
