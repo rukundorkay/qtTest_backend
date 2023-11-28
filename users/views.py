@@ -18,6 +18,21 @@ from users.serializers import RegisterSerializer, UserSerializer, VerifyEmailByO
 
 
 class CustomLoginView(APIView):
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'email': openapi.Schema(type=openapi.TYPE_STRING),
+             
+                'password': openapi.Schema(type=openapi.TYPE_STRING),
+            }
+        ),
+        responses={
+            200: 'logged in successfully',
+            401: 'Unable to log in with provided credentials',
+        }
+        )
+    
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -187,8 +202,6 @@ class ResetPasswordView(APIView):
             if serializer.is_valid():
                 email = serializer.data['email']
                 code = serializer.data['code']
-                # new_password = serializer.data['new_password']
-
                 # updating user password  logics here
                 user_reset = ResetPassword.objects.filter(email = email, code =code).first()
                 if user_reset:

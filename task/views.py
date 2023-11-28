@@ -32,8 +32,9 @@ class AssigneeCreateView(generics.ListCreateAPIView):
     serializer_class = AssignesSerializer
 
 class Analytics(APIView):
+    
     permission_classes = [IsAuthenticated]
-   
+    
     def get(self, request):
         total= Task.objects.count()
         today= Task.objects.filter(created_at=datetime.date.today()).count()
