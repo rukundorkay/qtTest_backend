@@ -15,3 +15,10 @@ class Task(models.Model):
     description=models.CharField(("description"),max_length=100,blank=False)
     priority= models.CharField(("priority"),max_length=40,choices=Priority_CHOICES, default='LOW'),
     file_attachment=models.CharField(("file attachment"),blank=False,max_length=100)
+    project_name = models.CharField(max_length=255)
+    # assignees = models.ManyToManyField('auth.User')
+
+class Assignees(models.Model):
+        id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+        name=name = models.CharField( ("name"),max_length=50,blank=False)
+        
