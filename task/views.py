@@ -2,6 +2,7 @@ from rest_framework import generics
 from .models import Task,Assignees
 from .serializers import TaskSerializer,AssignesSerializer
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
 
 class TaskListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
@@ -25,6 +26,12 @@ class AssigneeCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     queryset = Assignees.objects.all()
     serializer_class = AssignesSerializer
+
+class Analytics(APIView):
+    permission_classes = [IsAuthenticated]
+    Task.objects.filter()
+
+
 
         
         

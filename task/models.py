@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+# from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 class Task(models.Model):
@@ -16,7 +17,8 @@ class Task(models.Model):
     priority= models.CharField(("priority"),max_length=40,choices=Priority_CHOICES, default='LOW'),
     file_attachment=models.CharField(("file attachment"),blank=False,max_length=100)
     project_name = models.CharField(max_length=255)
-    # assignees = models.ManyToManyField('auth.User')
+    created_at = models.DateTimeField(auto_now_add=True)
+    # assignees = ArrayField(ArrayField(models.IntegerField()))
 
 class Assignees(models.Model):
         id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
