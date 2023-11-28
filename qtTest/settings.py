@@ -161,5 +161,5 @@ AUTH_USER_MODEL = "users.CustomUser"
 # ALLOWED ORIGINS
 CORS_ALLOWED_ORIGINS = [ 
     'http://localhost:5173',
-    'https://qt-test-front-end.vercel.app/',
+    'https://qt-test-front-end.vercel.app',
 ]
