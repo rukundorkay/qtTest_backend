@@ -11,7 +11,7 @@ def send_welcome_email(user_email):
     
     otp = generate_otp()
     subject = 'Welcome to Task managment software.'
-    message = f'Thank you for registering . We hope you will enjoy!, Please verify your Email by using this OTP: {otp}'
+    message = f'Thank you for registering . We hope you will enjoy! using task manager'
     from_email = settings.EMAIL_HOST_USER
     recipient_list = [user_email]
 

@@ -31,7 +31,7 @@ class CustomUser(AbstractBaseUser):
     gender = models.CharField(max_length=128, choices=GENDER_CHOICES, default='other') 
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['phone_number']
